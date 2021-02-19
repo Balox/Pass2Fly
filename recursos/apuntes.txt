@@ -1,0 +1,11 @@
+https://www.youtube.com/watch?v=EyrKUSwi4uI&ab_channel=CodAffection
+
+<h3>Usuario : @Session["userName"].ToString()<h3>
+
+<a href="@Url.Action("LogOut","Login")">LogOut</a>
+
+
+  if (Session["userID"] == null) {
+      //Response.Redirect("Login");
+      Response.Redirect(Url.Action("Index","Login"));
+  }

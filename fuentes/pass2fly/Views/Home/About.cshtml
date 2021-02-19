@@ -1,0 +1,11 @@
+﻿@{
+  ViewBag.Title = "About";
+
+  if(Session["userID"] == null) {
+      Response.Redirect(Url.Action("Index","Login"));
+  }
+}
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+<p>Use this area to provide additional information.</p>

@@ -1,0 +1,86 @@
+﻿@model pass2fly.Models.usuario
+@{
+  Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+    <style>
+        #login-div {
+            position: absolute;
+            left: 40%;
+            top: 40%;
+            border: 1px solid #ccc;
+            padding: 10px 10px;
+        }
+
+        .field-validation-error {
+            color: red;
+        }
+    </style>
+    <script>
+        window.setTimeout(function () {
+            // This will execute 5 seconds later
+            var label = document.getElementById('errorMessage');
+            if (label != null) {
+                label.style.display = 'none';
+            }
+        }, 5000);
+    </script>
+</head>
+<body>
+    <div id="login-div">
+        @using(Html.BeginForm("Authorize","Login",FormMethod.Post)) {
+    <table>
+        <tr>
+            <td></td>
+            <td style="text-decoration:underline">PASS-2-FLY</td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.usuario1)
+            </td>
+            <td>
+                @Html.EditorFor(model => model.usuario1)
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>@Html.ValidationMessageFor(model => model.usuario1) </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.clave)
+            </td>
+            <td>
+                @Html.EditorFor(model => model.clave)
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>@Html.ValidationMessageFor(model => model.clave) </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <label id="errorMessage" class="field-validation-error" display="dynamic">@Html.DisplayFor(model => model.LoginErrorMessage) </label>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <input type="submit" name="name" value="Ingresar" />
+                <input type="reset" name="name" value="Limpiar" />
+            </td>
+        </tr>
+    </table>
+}
+    </div>
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+</body>
+</html>
